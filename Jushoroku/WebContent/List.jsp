@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="jushorokuPackage.ListBL" import="java.sql.*" import="java.net.URLEncoder"
-	import="java.text.NumberFormat" import="java.util.*" %>
+	import="java.text.NumberFormat" import="java.util.*" import="java.net.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -44,6 +44,7 @@ if (listCnt == 0) {
 }
 
 beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList");
+String SerchRs = URLEncoder.encode(Serch, "UTF-8");
 %>
 
 <!-- 表示画面のコード -->
@@ -53,7 +54,7 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 
 <!-- 検索用テキストボックス -->
 
-<form method="get" class="serchbox">
+<form method="post" class="serchbox" action="ListBL">
 	<table style="float: right" class="serchtable">
 		<tr>
 			<td><label for="jyusyo">住所：</label></td>
@@ -73,13 +74,13 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 				<%if (now == 1) {%>
 			<a><%="<<"%></a>
 			<%} else { %>
-			<a href="ListBL?Page=1&Serch=<%=Serch %>"><%="<<"%></a>
+			<a href="ListBL?Page=1&Serch=<%=SerchRs %>"><%="<<"%></a>
 			<%}%>
 			</li>
 			<li>
 				<%if (now == 1) {%> <a><%="<"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=now - 1%>&Serch=<%=Serch %>"><%="<"%></a>
+				<a href="ListBL?Page=<%=now - 1%>&Serch=<%=SerchRs %>"><%="<"%></a>
 				<%}%>
 			</li>
 			<%
@@ -102,7 +103,7 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 				<%if (now == i) {%>
 				<a><%=i%></a>
 				<%} else { %>
-				<a href="ListBL?Page=<%=i%>&Serch=<%=Serch %>"><%=i%></a>
+				<a href="ListBL?Page=<%=i%>&Serch=<%=SerchRs %>"><%=i%></a>
 				<%}%>
 			</li>
 			<%if (maxPage != i) {%>
@@ -112,13 +113,13 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 			<li>
 				<%if (now == maxPage) {%> <a><%=">"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=now + 1%>&Serch=<%=Serch %>"><%=">"%></a>
+				<a href="ListBL?Page=<%=now + 1%>&Serch=<%=SerchRs %>"><%=">"%></a>
 				<%}%>
 			</li>
 			<li>
 				<%if (now == maxPage) {%> <a><%=">>"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=maxPage%>&Serch=<%=Serch %>"><%=">>"%></a>
+				<a href="ListBL?Page=<%=maxPage%>&Serch=<%=SerchRs %>"><%=">>"%></a>
 				<%}%>
 			</li>
 		</ul>
@@ -170,13 +171,13 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 				<%if (now == 1) {%>
 			<a><%="<<"%></a>
 			<%} else { %>
-			<a href="ListBL?Page=1&Serch=<%=Serch %>"><%="<<"%></a>
+			<a href="ListBL?Page=1&Serch=<%=SerchRs %>"><%="<<"%></a>
 			<%}%>
 			</li>
 			<li>
 				<%if (now == 1) {%> <a><%="<"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=now - 1%>&Serch=<%=Serch %>"><%="<"%></a>
+				<a href="ListBL?Page=<%=now - 1%>&Serch=<%=SerchRs %>"><%="<"%></a>
 				<%}%>
 			</li>
 			<%
@@ -199,7 +200,7 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 				<%if (now == i) {%>
 				<a><%=i%></a>
 				<%} else { %>
-				<a href="ListBL?Page=<%=i%>&Serch=<%=Serch %>"><%=i%></a>
+				<a href="ListBL?Page=<%=i%>&Serch=<%=SerchRs %>"><%=i%></a>
 				<%}%>
 			</li>
 			<%if (maxPage != i) {%>
@@ -209,13 +210,13 @@ beanList = (ArrayList<jushorokuPackage.ListBean>) request.getAttribute("beanList
 			<li>
 				<%if (now == maxPage) {%> <a><%=">"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=now + 1%>&Serch=<%=Serch %>"><%=">"%></a>
+				<a href="ListBL?Page=<%=now + 1%>&Serch=<%=SerchRs %>"><%=">"%></a>
 				<%}%>
 			</li>
 			<li>
 				<%if (now == maxPage) {%> <a><%=">>"%></a>
 				<%} else {%>
-				<a href="ListBL?Page=<%=maxPage%>&Serch=<%=Serch %>"><%=">>"%></a>
+				<a href="ListBL?Page=<%=maxPage%>&Serch=<%=SerchRs %>"><%=">>"%></a>
 				<%}%>
 			</li>
 		</ul>
