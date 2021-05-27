@@ -55,6 +55,7 @@ if (request.getParameter("name") == null) {
 		<dt>電話番号</dt><dd><span>:&nbsp;</span><input type="text" id="tel" name="tel" value="<%=tel %>"></dd>
 		<dt>カテゴリ</dt><dd><span>:</span>
 		<select  name="categoryid" >
+				<option></option>
 			<%for(int i = 0; i < beancategory.size(); i++) { %>
 				<option value="<%=beancategory.get(i).getCategoryId() %>"><%=beancategory.get(i).getCategoryName() %></option>
 			<%} %>

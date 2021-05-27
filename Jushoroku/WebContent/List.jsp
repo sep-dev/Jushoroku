@@ -132,7 +132,7 @@ String SerchRs = URLEncoder.encode(Serch, "UTF-8");
 		<th width="150px" >名前</th>
 		<th width="380px" >住所</th>
 		<th width="200px">電話番号</th>
-		<th width="80px" ><font color="#c71585f">カテゴリ</font></th>
+		<th width="80px" >カテゴリ</th>
 		<th></th>
 	</tr>
 <% for (int s = 0; s < beanList.size(); s++) { %>
@@ -146,7 +146,7 @@ String SerchRs = URLEncoder.encode(Serch, "UTF-8");
     	<%} else { %>
     		<td><p><%=beanList.get(s).getTel().substring(0, 3) + "-" + beanList.get(s).getTel().substring(3, 7) + "-" + beanList.get(s).getTel().substring(7, 11)%></p></td>
     	<%} %>
-    	<td><p><font color="#c71585f"><%=beanList.get(s).getCategoryName() %></font></p></td>
+    	<td><p><%=beanList.get(s).getCategoryName() %></p></td>
     	<td>
     	<form method="post">
     	<input type="hidden" name="id" value="<%=beanList.get(s).getId() %>">
